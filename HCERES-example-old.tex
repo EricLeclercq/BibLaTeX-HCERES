@@ -1,0 +1,93 @@
+\documentclass[10pt]{article}
+%
+% pour anciennes version de TeXLive (2016) 
+%
+\usepackage{a4}
+\usepackage[french]{babel}
+
+\usepackage[backend=biber,sorting=ydnt,defernumbers=true,maxbibnames=99]{biblatex}
+
+
+%\addbibresource{./Biblio/conf-int.bib}
+
+\usepackage{filecontents}
+\begin{filecontents}{references.bib}
+@book{knuth1986texbook,
+  title={The texbook},
+  author={Knuth, D.E. and Bibby, D.},
+  volume={1993},
+  year={1986},
+  publisher={Addison-Wesley},
+  keywords={OS}
+}
+@article{knuth1977fast,
+  title={Fast pattern matching in strings},
+  author={Knuth, D.E. and Morris Jr, J.H. and Pratt, V.R.},
+  journal={SIAM journal on computing},
+  volume={6},
+  number={2},
+  pages={323--350},
+  year={1977},
+  publisher={SIAM},
+  keywords={ACL}
+}
+@inproceedings{knuth1970simple,
+  title={Simple word problems in universal algebras},
+  author={Knuth, D.E. and Bendix, P.B.},
+  booktitle={Computational problems in abstract algebra},
+  volume={263},
+  pages={297},
+  year={1970},
+  keywords={ACL}
+}
+\end{filecontents}
+\addbibresource{references.bib}
+
+% ne pas oublier d'utiliser biber à la place de bibtex
+\begin{document}
+\begin{center}
+\Large
+\textsf{\bfseries Exemple de bibliographies multiples avec codage HCERES}
+\end{center}
+
+\begin{itemize}
+\item  Publications scientifiques
+ \begin{itemize}
+    \item ACL : Articles dans des revues internationales ou nationales avec comité de lecture répertoriées par l'HCERES ou dans les bases de données internationales (ISI Web of Knowledge, Pub Med, Scopus...).
+    \item ACLN : Articles dans des revues avec comité de lecture non répertoriées par l'HCERES ou dans des bases de données internationales.
+    \item ASCL : Articles dans des revues sans comité de lecture.
+    \item OS : Ouvrages scientifiques (y compris les éditions critiques et les traductions scientifiques)
+    \item PT : Publications de transfert.
+    \item BRE : Brevets
+    \item C-INV : Conférences données à l'invitation du Comité d'organisation dans un congrès national ou international.
+    \item C-ACTI : Communications avec actes dans un congrès international.
+    \item C-ACTN : Communications avec actes dans un congrès national.
+    \item C-COM : Communications orales sans actes dans un congrès international ou national.
+    \item C-AFF : Communications par affiche dans un congrès international ou national.
+    \item DO : Directions d'ouvrages ou de revues.
+    \item OR : Outils de recherche (bases de données, corpus de recherche...).
+ \end{itemize}
+ \item Diffusions de la culture scientifique
+  \begin{itemize}
+    \item PV : Publications de vulgarisation.
+    \item PAT : Productions artistiques théorisées (compositions musicales, cinématographiques, expositions, installations...).
+  \end{itemize}
+ \item Autres productions
+ \begin{itemize}
+   \item  AP : Autres productions. Bases de données, logiciels enregistrés, comptes rendus d'ouvrages, rapports de fouilles, guides techniques, catalogues d'exposition, rapports intermédiaires de grands projets internationaux, etc.
+   \item TH : Thèses de doctorat 
+ \end{itemize}
+\end{itemize}
+  
+
+\nocite{*}
+
+\printbibliography[title={Revues},prefixnumbers={SD-ACL-N},keyword=journal]
+
+\printbibliography[title={Conférences internationales},prefixnumbers={SD-C-ACTI},keyword=conf-int]
+
+\printbibliography[title={Conférences nationales},prefixnumbers={SD-C-ACTN},keyword=conf-fr]
+
+\printbibliography[title={Chapitres de livres},prefixnumbers={SD-OS},keyword=book]
+
+\end{document}
